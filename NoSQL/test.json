@@ -1,0 +1,19 @@
+use db_times
+
+db.times.insertOne({"_id": 1, "nome": "Gremio"})
+
+db.times.insertMany([{"nome": "Brasil - Pel"},{"nome": "Pelotas-RS"}])
+
+db.times.find({"nome": "Gremio"}, {"_id": 1})
+
+db.times.findOne({"nome": "Pelotas-RS"}, {"_id": 1})
+
+db.times.deleteOne({"nome": "Pelotas-RS"})
+
+db.times.deleteMany({})
+
+db.times.updateOne({ "nome": "Gremio" }, $set: { "cidade": "Porto Alegre" })
+
+db.times.updateMany({"nome": $regex: "Pel", $set: {"estado": "RS"}})
+
+db.times.replaceOne({"nome": "Pelotas - RS"},{"cidade": "Pelotas"})
